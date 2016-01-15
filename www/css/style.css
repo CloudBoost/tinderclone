@@ -6,15 +6,31 @@ td-cards {
 td-card {
   position: absolute;
   left: 50%;
-  margin-top: 80px;
+  margin-top: 30px;
   margin-bottom: 40px;
   margin-left: -150px;
   width: 300px;
-  height: 300px;
+  height: 350px;
 
-  border: 1px solid #999;
+  border: 3px solid #efefef;
   box-shadow: 0px 1px 3px rgba(0,0,0,0.2);
   border-radius: 6px;
+}
+.action{
+  left: 10%;
+  position: absolute;
+  top: 430px;
+}
+.action-button{
+  background-color: #fff;
+  border: 7px solid #ccc;
+  border-radius: 50%;
+  float: left;
+  height: 60px;
+  width: 60px;
+  overflow: hidden;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 /*
 td-card.card-0 {
@@ -65,4 +81,13 @@ td-card img {
   -webkit-transition: 0.2s opacity linear;
   transition: 0.2s opacity linear;
   opacity: 0;
+}
+.name{
+  background-color: #fff;
+  bottom: 0;
+  font-size: 18px;
+  height: 38px;
+  padding: 10px;
+  position: absolute;
+  width: 100%;
 }

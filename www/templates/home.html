@@ -62,15 +62,24 @@
       <td-cards>
         <td-card ng-repeat="card in cards"
         on-destroy="cardDestroyed($index)"
-        on-swipe="cardSwiped($index)"
-        >
+        on-swipe="cardSwiped($index)">
         <div class="image" ng-controller="CardCtrl">
           <div class="no-text">NOPE</div>
           <img ng-src="{{card.image}}">
           <div class="yes-text">LIKE</div>
         </div>
+        <div class="name" ng-controller="CardCtrl" >
+          <span>{{card.name}}</span>
+          <span>{{card.age}}</span>
+        </div>
         </td-card>
       </td-cards>
+      <div class="action">
+        <div class="action-button" style="background-image:url('img/typcn-refresh_20_0_e8b10c_none.png');"></div>
+        <div class="action-button" style="height:90px; width:90px; background-image:url('img/mfglabs-cross_mark_32_0_ed463b_none.png');"></div>
+        <div class="action-button" style="height:90px; width:90px; background-image:url('img/fa-heart_32_0_36c444_none.png');"></div>
+        <div class="action-button" style="background-image:url('img/fa-star_20_0_1ab9ab_none.png');"></div>
+      </div>
     </ion-content>
   </ion-side-menu-content>
 </ion-side-menus>

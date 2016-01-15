@@ -2,14 +2,24 @@ angular.module('setting.controllers', [])
 
 .controller('HomeCtrl', function($scope, TDCardDelegate) {
   var cardTypes = [{
+    'name': 'Plus',
+    'age':22,
     image: 'img/plus.png'
   }, {
+    'name': 'Heart',
+    'age': 24,
     image: 'img/heart.png'
   }, {
+    'name': 'Ranjeet',
+    'age':25,
     image: 'img/profile.jpg'
   }, {
+    'name': 'Question Mark',
+    'age':27,
     image: 'img/question.png'
   }, {
+    'name': 'Fire',
+    'age': 26,
     image: 'img/fire.png'
   }];
   $scope.cards = Array.prototype.slice.call(cardTypes, 0);
