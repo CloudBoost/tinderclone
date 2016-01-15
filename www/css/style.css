@@ -32,6 +32,12 @@ td-card {
   background-position: center;
   background-repeat: no-repeat;
 }
+.setting-card{
+  background-color:#fff;
+  border-radius:6px;
+  overflow:hidden;
+  width: 100%;
+}
 /*
 td-card.card-0 {
   -webkit-transform: translate3d(0, 0px, 0);
