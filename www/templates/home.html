@@ -1,0 +1,63 @@
+<ion-side-menus>
+  <!-- Left menu -->
+  <ion-side-menu side="left">
+    <ion-header-bar class="dark-bg bar bar-header-expanded disable-user-behavior">
+      <div class="back-image"></div>
+      <img  class="avatar" src="img/profile.jpg">
+      <h1 style="color: #fff;
+    font-size: 24px;
+    font-weight: 600;
+    left: 100px;
+    position: absolute;
+    right: 0;
+    top: 20px;">Ranjeet</h1>
+      <h5 style="position:absolute; left:102px; top:60px; font-size:12px; color:#fff;">View Profile</h5>
+    </ion-header-bar>
+    <ion-content class="light-bg scroll-content ionic-scroll has-header-expanded">
+      <ion-list>
+        <ion-item menu-close href>
+          <img class="menu-icon" src="img/heart.png">
+          <span class="title">Discovery Settings</span>
+          <h5 class="subtitle">Distance, age, and more</h5>
+        </ion-item>
+        <ion-item menu-close href>
+          <img class="menu-icon" src="img/fire.png">
+          <span class="title">App Settings</span>
+          <h5 class="subtitle">Notification, account, and more</h5>
+        </ion-item>
+        <ion-item menu-close href="#/app/boughtdeals">
+          <img class="menu-icon" src="img/question.png">
+          <span class="title">Help & Support</span>
+          <h5 class="subtitle">FAQ, contact and more</h5>
+        </ion-item>
+        <ion-item menu-close href="#/app/boughtdeals">
+          <img class="menu-icon" src="img/plus.png">
+          <span class="title" style="color:#ff4b4b;">Get Tinder Plus</span>
+          <h5 class="subtitle">Get More Super Likes</h5>
+        </ion-item>
+      </ion-list>
+    </ion-content>
+  </ion-side-menu>
+  <ion-side-menu-content>
+  <!-- Main content, usually <ion-nav-view> -->
+    <ion-header-bar class="bar-custom bar bar-header" align-title="center">
+      <div class="buttons buttons-left header-item">
+        <span class="left-buttons">
+          <button menu-toggle="left" class="button button-icon button-clear ion-navicon">
+          </button>
+        </span>
+      </div>
+      <div class="title title-center header-item">
+        <span>tinder<span>
+      </div>
+      <div class="buttons buttons-right header-item">
+        <span class="right-buttons">
+          <button class="button button-icon button-clear ion-chatbubbles">
+          </button>
+        </span>
+      </div>
+    </ion-header-bar>
+    <ion-content>
+    </ion-content>
+  </ion-side-menu-content>
+</ion-side-menus>
