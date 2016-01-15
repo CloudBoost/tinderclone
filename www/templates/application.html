@@ -1,0 +1,41 @@
+
+<ion-header-bar class="bar-stable" style="background-color:#fff;">
+  <div class="buttons" >
+    <button class="button icon ion-arrow-left-c" style="background-color:#fff;"></button>
+  </div>
+  <h3 class="title" style="font-size: 20px;font-weight: 500;">App Settings</h3>
+</ion-header-bar>
+<ion-content style="background-color:#efefef; padding:20px;">
+  <div style="width:100%;">
+    <div style=""><h4>Notifications:</h4></div>
+  </div>
+  <div class="setting-card" style="padding:10px;">
+    <ion-toggle ng-model="airplaneMode" toggle-class="toggle-calm">New Matches</ion-toggle>
+    <ion-toggle ng-model="airplaneMode" toggle-class="toggle-calm">Messages</ion-toggle>
+    <ion-toggle ng-model="airplaneMode" toggle-class="toggle-calm">Super Likes</ion-toggle>
+  </div>
+  <div style="width:100%;">
+    <div style="float:left;"><h4>Show Distances in:</h4></div><div style="float:right;"><h4>Km</h4></div>
+  </div>
+  <div class="setting-card" style="padding:10px;">
+    <ion-radio ng-model="choice" ng-value="'A'">Km.</ion-radio>
+    <ion-radio ng-model="choice" ng-value="'B'">Mi.</ion-radio>
+  </div>
+  <br>
+  <div class="setting-card" style="padding:10px;">
+    <h5>Share Tinder</h5>
+  </div>
+  <div class="setting-card" style="padding:10px; margin-top:5px;">
+    <h5>Restore Purchase</h5>
+  </div>
+  <div class="setting-card" style="padding:10px; margin-top:5px;">
+    <h5>Privacy Policy</h5>
+  </div>
+  <div class="setting-card" style="padding:10px; margin-top:5px;">
+    <h5>Terms of Service</h5>
+  </div>
+  <br>
+  <div class="setting-card" style="padding:10px;">
+    <h5>Logout</h5>
+  </div>
+</ion-content>
