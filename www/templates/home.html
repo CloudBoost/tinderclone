@@ -58,6 +58,19 @@
       </div>
     </ion-header-bar>
     <ion-content>
+      {{cardTypes}}
+      <td-cards>
+        <td-card ng-repeat="card in cards"
+        on-destroy="cardDestroyed($index)"
+        on-swipe="cardSwiped($index)"
+        >
+        <div class="image" ng-controller="CardCtrl">
+          <div class="no-text">NOPE</div>
+          <img ng-src="{{card.image}}">
+          <div class="yes-text">LIKE</div>
+        </div>
+        </td-card>
+      </td-cards>
     </ion-content>
   </ion-side-menu-content>
 </ion-side-menus>

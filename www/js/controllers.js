@@ -1,24 +1,20 @@
 angular.module('setting.controllers', [])
 
-.controller('HomeCtrl', function($scope) {
+.controller('HomeCtrl', function($scope, TDCardDelegate) {
   var cardTypes = [{
-    title: 'Swipe down to clear the card',
-    image: 'img/profile.png'
+    image: 'img/plus.png'
   }, {
-    title: 'Where is this?',
     image: 'img/heart.png'
   }, {
-    title: 'What kind of grass is this?',
-    image: 'img/plust.png'
+    image: 'img/profile.jpg'
   }, {
-    title: 'What beach is this?',
     image: 'img/question.png'
   }, {
-    title: 'What kind of clouds are these?',
     image: 'img/fire.png'
   }];
-  $scope.cards = Array.prototype.slice.call(cardTypes, 0, 0);
-
+  $scope.cards = Array.prototype.slice.call(cardTypes, 0);
+  //$scope.cards = cardTypes;
+  console.log("length: "+ $scope.cards.length);
   $scope.cardSwiped = function(index) {
     $scope.addCard();
   };
@@ -33,9 +29,13 @@ angular.module('setting.controllers', [])
     $scope.cards.push(angular.extend({}, newCard));
   };
 })
-.controller('CardCtrl', function($scope, $ionicSwipeCardDelegate) {
-  $scope.goAway = function() {
-    var card = $ionicSwipeCardDelegate.getSwipeableCard($scope);
-    card.swipe();
+.controller('CardCtrl', function($scope, TDCardDelegate) {
+  $scope.cardSwipedLeft = function(index) {
+    console.log('LEFT SWIPE');
+    $scope.addCard();
+  };
+  $scope.cardSwipedRight = function(index) {
+    console.log('RIGHT SWIPE');
+    $scope.addCard();
   };
 });
