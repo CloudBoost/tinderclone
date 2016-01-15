@@ -32,6 +32,16 @@ td-card {
   background-position: center;
   background-repeat: no-repeat;
 }
+.profile-button{
+  border-radius: 50%;
+  float: left;
+  height: 60px;
+  width: 60px;
+  overflow: hidden;
+  background-position: center;
+  background-repeat: no-repeat;
+  margin: -28px 33px;
+}
 .setting-card{
   background-color:#fff;
   border-radius:6px;
