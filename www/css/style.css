@@ -6,7 +6,7 @@ td-cards {
 td-card {
   position: absolute;
   left: 50%;
-  margin-top: 30px;
+  margin-top: 20px;
   margin-bottom: 40px;
   margin-left: -150px;
   width: 300px;
@@ -17,9 +17,9 @@ td-card {
   border-radius: 6px;
 }
 .action{
-  left: 10%;
+  left: 3%;
   position: absolute;
-  top: 430px;
+  top: 410px;
 }
 .action-button{
   background-color: #fff;
@@ -106,4 +106,30 @@ td-card img {
   padding: 10px;
   position: absolute;
   width: 100%;
+}
+.match-page-button{
+  background-color: #ef473a;
+  background-image: linear-gradient(0deg, #e42112, #e42112 50%, transparent 50%);
+  border-color: #e42112;
+  border-radius: 6px;
+  color: #fff;
+  font-size: 16px;
+}
+.match-page-button .title{
+  display: block;
+  font-size: 20px;
+  font-weight: 500;
+  height: 54px;
+  left: 0;
+  line-height: 44px;
+  margin: 0 10px;
+  min-width: 30px;
+  overflow: hidden;
+  position: absolute;
+  right: 0;
+  text-align: center;
+  text-overflow: ellipsis;
+  top: 0;
+  white-space: nowrap;
+  z-index: 0;
 }

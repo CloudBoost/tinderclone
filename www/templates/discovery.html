@@ -1,38 +1,38 @@
-
+<div style="opacity: 1; transform: translate3d(0%, 0px, 0px);">
 <ion-header-bar class="bar-stable" style="background-color:#fff;">
   <div class="buttons" >
-    <button class="button icon ion-arrow-left-c" style="background-color:#fff;"></button>
+    <button class="button icon ion-arrow-left-c" style="background-color:#fff;" ng-click="goBack()"></button>
   </div>
   <h3 class="title" style="font-size: 20px;font-weight: 500;">Discovery Settings</h3>
 </ion-header-bar>
 <ion-content style="background-color:#efefef; padding:20px;">
   <div class="setting-card">
-    <ion-toggle ng-model="airplaneMode" toggle-class="toggle-calm">Discovery</ion-toggle>
+    <ion-toggle ng-model="discovery" toggle-class="toggle-calm">Discovery</ion-toggle>
   </div>
   <br>
   <div class="setting-card" style="padding:10px;">
     <p>Swiping in</p>
-    <ion-radio ng-model="choice" ng-value="'A'">My Current Location</ion-radio>
-    <ion-radio ng-model="choice" ng-value="'B'">Add a new location</ion-radio>
+    <ion-radio ng-model="currentLocation" ng-value="'A'" ng-readonly="true">My Current Location</ion-radio>
   </div>
   <br>
   <div style="width:100%;">
-    <div style="float:left;"><h4>Show Me:</h4></div><div style="float:right;"><h4>Men</h4></div>
+    <div style="float:left;"><h4>Show Me:</h4></div><div style="float:right;"><h4><span ng-if="men">Men</span>&nbsp;<span ng-if="women">Women</span></h4></div>
   </div>
   <div class="setting-card" style="padding:10px;">
-    <ion-toggle ng-model="airplaneMode" toggle-class="toggle-calm">Men</ion-toggle>
-    <ion-toggle ng-model="airplaneMode" toggle-class="toggle-calm">Women</ion-toggle>
+    <ion-toggle ng-model="men" toggle-class="toggle-calm">Men</ion-toggle>
+    <ion-toggle ng-model="women" toggle-class="toggle-calm">Women</ion-toggle>
   </div>
   <div style="width:100%;">
-    <div style="float:left;"><h4>Search Distance:</h4></div><div style="float:right;"><h4>80 Km</h4></div>
+    <div style="float:left;"><h4>Search Distance:</h4></div><div style="float:right;"><h4>{{distance}} Km</h4></div>
   </div>
   <div class="setting-card" style="padding:10px;">
-    <input type="range" name="volume" min="0" max="160">
+    <input type="range" name="volume" min="0" max="50">
   </div>
   <div style="width:100%;">
-    <div style="float:left;"><h4>Show Ages:</h4></div><div style="float:right;"><h4>18-30</h4></div>
+    <div style="float:left;"><h4>Show Ages:</h4></div><div style="float:right;"><h4>18-{{ageRange.max}}</h4></div>
   </div>
   <div class="setting-card" style="padding:10px;">
-    <input type="range" name="volume" min="0" max="160">
+    <input type="range" name="volume" min="18" max="160">
   </div>
 </ion-content>
+</div>

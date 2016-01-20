@@ -3,7 +3,7 @@
   <ion-side-menu side="left">
     <ion-header-bar class="dark-bg bar bar-header-expanded disable-user-behavior">
       <div class="back-image"></div>
-      <img  class="avatar" ng-src="{{$root.user.picture}}">
+      <img  class="avatar" src="img/profile.jpg">
       <h1 style="color: #fff;
     font-size: 24px;
     font-weight: 600;
@@ -15,22 +15,22 @@
     </ion-header-bar>
     <ion-content class="light-bg scroll-content ionic-scroll has-header-expanded">
       <ion-list>
-        <ion-item menu-close href="#/discovery">
+        <ion-item href="#/discovery">
           <img class="menu-icon" src="img/heart.png">
           <span class="title">Discovery Settings</span>
           <h5 class="subtitle">Distance, age, and more</h5>
         </ion-item>
-        <ion-item menu-close href="#/application">
+        <ion-item href="#/application">
           <img class="menu-icon" src="img/fire.png">
           <span class="title">App Settings</span>
           <h5 class="subtitle">Notification, account, and more</h5>
         </ion-item>
-        <ion-item menu-close href>
+        <ion-item href>
           <img class="menu-icon" src="img/question.png">
           <span class="title">Help & Support</span>
           <h5 class="subtitle">FAQ, contact and more</h5>
         </ion-item>
-        <ion-item menu-close href>
+        <ion-item href>
           <img class="menu-icon" src="img/plus.png">
           <span class="title" style="color:#ff4b4b;">Get Tinder Plus</span>
           <h5 class="subtitle">Get More Super Likes</h5>
@@ -48,54 +48,35 @@
         </span>
       </div>
       <div class="title title-center header-item">
-        <span>
+        <span style="border-bottom:none; ">
           <a href="#/app" style="text-decoration:none;">tinder</a>
         </span>
       </div>
       <div class="buttons buttons-right header-item">
-        <span class="right-buttons">
-          <a class="button button-icon button-clear ion-chatbubbles" href="#/match">
+        <span class="right-buttons" style="border-bottom:solid; padding-bottom:46px;">
+          <a class="button button-icon button-clear ion-chatbubbles" href="#/chat">
           </a>
         </span>
       </div>
     </ion-header-bar>
-    <ion-content>
-      {{cardTypes}}
-      <td-cards>
-        <td-card ng-repeat="card in cards"
-          on-destroy="cardDestroyed($index)"
-          on-swipe="cardSwiped($index)"
-          on-swipe-left="cardSwipedLeft($index)"
-          on-swipe-right="cardSwipedRight($index)">
-        <div class="image" ng-controller="CardCtrl">
-          <div class="no-text">NOPE</div>
-          <img ng-src="{{card.image}}">
-          <div class="yes-text">LIKE</div>
-        </div>
-        <div class="name" ng-controller="CardCtrl" >
-          <span>{{card.name}}</span>
-          <span>{{card.age}}</span>
-        </div>
-        </td-card>
-      </td-cards>
-      <div ng-if="cards.length <= 0" style="text-align:center;">
-        <div class="row" style="margin-top:180px;">
-
-          <div class="col-33" style="left:29%; position:absolute;">
-            <img class="avatar" src="img/profile.jpg" style="height:120px; width:120px;">
-          </div>
-
-        </div>
-        <br>
-        <div style="margin-top:150px;">
-          <span style="color:#999; font-size:20px;">There's no one new around you</span>
-        </div>
+    <ion-content style="padding:20px;">
+      <div ng-if="match">
+        <ion-list type="list" style="">
+            <ion-item class="item item-thumbnail-left" href ng-repeat="user in chatMembers" ng-click="startChatting(user, userList[user].displayName)">
+                <img ng-src="{{userList[user].picture.replace('large', '') || defaultPicture }}">
+                <h2>{{userList[user].displayName}}</h2>
+                <p ng-if="userList[user].seller.closed">{{userList[user].seller.closed}}/{{userList[user].seller.opened}} &nbsp; &nbsp;{{userList[user].buyer}}</p>
+                <p ng-if="!userList[user].seller.closed">{{userList[user].seller}} &nbsp; &nbsp;{{userList[user].buyer}}</p>
+            </ion-item>
+        </ion-list>
       </div>
-      <div ng-if="cards.length > 0" class="action">
-        <div class="action-button" ng-click="replay()" style="background-image:url('img/typcn-refresh_20_0_e8b10c_none.png');"></div>
-        <div class="action-button" ng-click="cardDestroyed()" style="height:90px; width:90px; background-image:url('img/mfglabs-cross_mark_32_0_ed463b_none.png');"></div>
-        <div class="action-button" ng-click="like()" style="height:90px; width:90px; background-image:url('img/fa-heart_32_0_36c444_none.png');"></div>
-        <div class="action-button" ng-click="superlike()" style="background-image:url('img/fa-star_20_0_1ab9ab_none.png');"></div>
+      <div ng-if="!match" style="text-align:center;" >
+        <div style="margin-top:250px;">
+          <span style="color:#999; font-size:22px;">You have no matches yet</span>
+        </div>
+        <div class="bar match-page-button" style="margin-top:80px;" ng-click="goBack()">
+          <span class="title">Discover New People</span>
+        </div>
       </div>
     </ion-content>
   </ion-side-menu-content>

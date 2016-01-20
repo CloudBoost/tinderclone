@@ -1,7 +1,7 @@
 
 <ion-header-bar class="bar-stable" style="background-color:#fff;">
   <div class="buttons" >
-    <button class="button icon ion-arrow-left-c" style="background-color:#fff;"></button>
+    <button class="button icon ion-arrow-left-c" style="background-color:#fff;" ng-click="goBack()"></button>
   </div>
   <h3 class="title" style="font-size: 20px;font-weight: 500;">App Settings</h3>
 </ion-header-bar>
@@ -10,9 +10,9 @@
     <div style=""><h4>Notifications:</h4></div>
   </div>
   <div class="setting-card" style="padding:10px;">
-    <ion-toggle ng-model="airplaneMode" toggle-class="toggle-calm">New Matches</ion-toggle>
-    <ion-toggle ng-model="airplaneMode" toggle-class="toggle-calm">Messages</ion-toggle>
-    <ion-toggle ng-model="airplaneMode" toggle-class="toggle-calm">Super Likes</ion-toggle>
+    <ion-toggle ng-model="match" toggle-class="toggle-calm">New Matches</ion-toggle>
+    <ion-toggle ng-model="message" toggle-class="toggle-calm">Messages</ion-toggle>
+    <ion-toggle ng-model="like" toggle-class="toggle-calm">Super Likes</ion-toggle>
   </div>
   <div style="width:100%;">
     <div style="float:left;"><h4>Show Distances in:</h4></div><div style="float:right;"><h4>Km</h4></div>

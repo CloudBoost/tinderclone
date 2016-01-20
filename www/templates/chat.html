@@ -1,0 +1,46 @@
+<ion-header-bar class="bar-stable" style="background-color:#fff;">
+  <div class="buttons" >
+    <button class="button icon ion-arrow-left-c" style="background-color:#fff;" ng-click="goBack()"></button>
+  </div>
+  <h3 class="title" style="font-size: 20px;font-weight: 500;">{{user}}</h3>
+</ion-header-bar>
+<div class="loader-center">
+      <div class="loader">
+        <i class="icon ion-loading-c"></i>
+      </div>
+  </div>
+  <ion-content class="has-header has-footer" has-bouncing="true"  delegate-handle="userMessageScroll">
+    <div class="message-wrapper" ng-repeat="chat in chatHistory">
+       <div ng-if="chat.document.from.document._id === chatUser.document._id">
+         <div class="chat-bubble left">
+             <div class="message"  ng-bind-html="chat.document.message" >
+             </div>
+             <div class="message-detail">
+                <small class="" data-livestamp="{{timeConversion(chat.document.createdAt)}}"></small>
+            </div>
+         </div>
+       </div>
+       <div ng-if="chat.document.from.document._id === currentUser.document._id">
+          <div class="chat-bubble right">
+            <div class="message" ng-bind-html="chat.document.message">
+            </div>
+            <div class="message-detail">
+                <small class="" data-livestamp="{{timeConversion(chat.document.createdAt)}}"></small>
+            </div>
+          </div>
+        </div>
+        <div class="cf"></div>
+     </div>
+  </ion-content>
+  <form name="sendMessageForm" ng-submit="saveChatText(text)" novalidate>
+      <ion-footer-bar class="bar-stable item-input-inset message-footer" keyboard-attach>
+          <label class="item-input-wrapper">
+              <textarea ng-model="text" value="" placeholder="Send {{chatUser.document.displayName}} a message..." required minlength="1" maxlength="1500" msd-elastic></textarea>
+          </label>
+          <div class="footer-btn-wrap">
+            <button class="button button-icon icon ion-android-send footer-btn" type="submit"
+                ng-disabled="!text || text === ''">
+            </button>
+          </div>
+      </ion-footer-bar>
+  </form>

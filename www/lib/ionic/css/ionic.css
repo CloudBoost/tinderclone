@@ -8070,8 +8070,8 @@ input:checked + .checkbox-icon:after {
   background-color: #387ef5; }
 
 .toggle.toggle-calm input:checked + .track {
-  border-color: #11c1f3;
-  background-color: #11c1f3; }
+  border-color: #FF4B4B;
+  background-color: #FF4B4B; }
 
 .toggle.toggle-assertive input:checked + .track {
   border-color: #ef473a;
@@ -8210,10 +8210,10 @@ input:checked + .checkbox-icon:after {
   background-color: #387ef5; }
 
 .toggle-small .toggle-calm input:checked + .track {
-  background-color: rgba(17, 193, 243, 0.5); }
+  background-color: #FF4B4B }
 
 .toggle-small .toggle-calm input:checked + .track .handle {
-  background-color: #11c1f3; }
+  background-color: #FF4B4B; }
 
 .toggle-small .toggle-assertive input:checked + .track {
   background-color: rgba(239, 71, 58, 0.5); }
