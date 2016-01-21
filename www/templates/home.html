@@ -11,7 +11,7 @@
     position: absolute;
     right: 0;
     top: 20px;">{{$root.user.first_name}}</h1>
-      <h5 style="position:absolute; left:102px; top:60px; font-size:12px; color:#fff;">View Profile</h5>
+      <a href="#/profile"><span style="position:absolute; left:102px; top:60px; font-size:12px; color:#fff; cursor:pointer;">View Profile</span></a>
     </ion-header-bar>
     <ion-content class="light-bg scroll-content ionic-scroll has-header-expanded">
       <ion-list>
@@ -42,61 +42,86 @@
   <!-- Main content, usually <ion-nav-view> -->
     <ion-header-bar class="bar-custom bar bar-header" align-title="center">
       <div class="buttons buttons-left header-item">
-        <span class="left-buttons">
+        <span class="left-buttons" >
           <button menu-toggle="left" class="button button-icon button-clear ion-navicon">
           </button>
         </span>
       </div>
       <div class="title title-center header-item">
-        <span>
+        <span ng-click="previous()">
           <a href="#/app" style="text-decoration:none;">tinder</a>
         </span>
       </div>
       <div class="buttons buttons-right header-item">
-        <span class="right-buttons">
-          <a class="button button-icon button-clear ion-chatbubbles" href="#/match">
-          </a>
+        <span class="right-buttons" ng-click="next()">
+          <a class="button button-icon button-clear ion-chatbubbles" href></a>
         </span>
       </div>
     </ion-header-bar>
-    <ion-content>
-      {{cardTypes}}
-      <td-cards>
-        <td-card ng-repeat="card in cards"
-          on-destroy="cardDestroyed($index)"
-          on-swipe="cardSwiped($index)"
-          on-swipe-left="cardSwipedLeft($index)"
-          on-swipe-right="cardSwipedRight($index)">
-        <div class="image" ng-controller="CardCtrl">
-          <div class="no-text">NOPE</div>
-          <img ng-src="{{card.image}}">
-          <div class="yes-text">LIKE</div>
-        </div>
-        <div class="name" ng-controller="CardCtrl" >
-          <span>{{card.name}}</span>
-          <span>{{card.age}}</span>
-        </div>
-        </td-card>
-      </td-cards>
-      <div ng-if="cards.length <= 0" style="text-align:center;">
-        <div class="row" style="margin-top:180px;">
-
-          <div class="col-33" style="left:29%; position:absolute;">
-            <img class="avatar" src="img/profile.jpg" style="height:120px; width:120px;">
+    <ion-content class="content-slide">
+      <ion-slide-box show-pager="false" on-slide-changed="slideHasChanged($index)">
+        <ion-slide>
+          <div class="row">
+            <td-cards>
+              <td-card ng-repeat="card in cards"
+                on-destroy="cardDestroyed($index)"
+                on-swipe="cardSwiped($index)"
+                on-swipe-left="cardSwipedLeft($index)"
+                on-swipe-right="cardSwipedRight($index)">
+              <div class="image" ng-controller="CardCtrl">
+                <div class="no-text">NOPE</div>
+                <img ng-src="{{card.image}}" width="100%" height="100%">
+                <div class="yes-text">LIKE</div>
+              </div>
+              <div class="name" ng-controller="CardCtrl" >
+                <span>{{card.name}}</span>
+                <span>,&nbsp;{{card.age}}</span>
+              </div>
+              </td-card>
+            </td-cards>
           </div>
-
+          <div class="row">
+            <div ng-if="cards.length <= 0" style="text-align:center;">
+              <div class="row" style="margin-top:180px;">
+                <div class="col-33" style="left:29%; position:absolute;">
+                  <img class="avatar" ng-src="{{$root.user.picture}}" style="height:120px; width:120px;">
+                </div>
+              </div>
+              <br>
+              <div style="margin-top:150px;">
+                <span style="color:#999; font-size:20px; padding:25px;">There's no one new around you</span>
+              </div>
+            </div>
+          </div>
+          <div ng-if="cards.length > 0" class="action row">
+            <div class="action-button" ng-click="replay()" style="background-image:url('img/typcn-refresh_20_0_e8b10c_none.png');"></div>
+            <div class="action-button" ng-click="cardDestroyed()" style="height:90px; width:90px; background-image:url('img/mfglabs-cross_mark_32_0_ed463b_none.png');"></div>
+            <div class="action-button" ng-click="cardDestroyed()" style="height:90px; width:90px; background-image:url('img/fa-heart_32_0_36c444_none.png');"></div>
+            <div class="action-button" ng-click="superlike()" style="background-image:url('img/fa-star_20_0_1ab9ab_none.png');"></div>
+          </div>
         </div>
-        <br>
-        <div style="margin-top:150px;">
-          <span style="color:#999; font-size:20px;">There's no one new around you</span>
-        </div>
-      </div>
-      <div ng-if="cards.length > 0" class="action">
-        <div class="action-button" ng-click="replay()" style="background-image:url('img/typcn-refresh_20_0_e8b10c_none.png');"></div>
-        <div class="action-button" ng-click="cardDestroyed()" style="height:90px; width:90px; background-image:url('img/mfglabs-cross_mark_32_0_ed463b_none.png');"></div>
-        <div class="action-button" ng-click="like()" style="height:90px; width:90px; background-image:url('img/fa-heart_32_0_36c444_none.png');"></div>
-        <div class="action-button" ng-click="superlike()" style="background-image:url('img/fa-star_20_0_1ab9ab_none.png');"></div>
-      </div>
+        </ion-slide>
+        <ion-slide>
+          <div ng-if="match">
+            <ion-list type="list" style="">
+                <ion-item class="item item-thumbnail-left" href ng-repeat="user in chatMembers" ng-click="startChatting(user, userList[user].displayName)">
+                    <img ng-src="{{userList[user].picture.replace('large', '') || defaultPicture }}">
+                    <h2>{{userList[user].displayName}}</h2>
+                    <p ng-if="userList[user].seller.closed">{{userList[user].seller.closed}}/{{userList[user].seller.opened}} &nbsp; &nbsp;{{userList[user].buyer}}</p>
+                    <p ng-if="!userList[user].seller.closed">{{userList[user].seller}} &nbsp; &nbsp;{{userList[user].buyer}}</p>
+                </ion-item>
+            </ion-list>
+          </div>
+          <div ng-if="!match" style="text-align:center;" >
+            <div style="margin-top:250px;">
+              <span style="color:#999; font-size:22px;">You have no matches yet</span>
+            </div>
+            <div class="bar match-page-button" style="margin:5%; width:90%; margin-top:80px;" ng-click="previous()">
+              <span class="title">Discover New People</span>
+            </div>
+          </div>
+        </ion-slide>
+      </ion-slide-box>
     </ion-content>
   </ion-side-menu-content>
 </ion-side-menus>

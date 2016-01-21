@@ -11,15 +11,20 @@ td-card {
   margin-left: -150px;
   width: 300px;
   height: 350px;
-
   border: 3px solid #efefef;
   box-shadow: 0px 1px 3px rgba(0,0,0,0.2);
   border-radius: 6px;
 }
 .action{
-  left: 3%;
+
   position: absolute;
-  top: 410px;
+  left: 50%;
+  margin-top: 20px;
+  margin-bottom: 40px;
+  margin-left: -150px;
+  width: 300px;
+  height: 100px;
+  top:420px;
 }
 .action-button{
   background-color: #fff;

@@ -6766,6 +6766,12 @@ button.item.item-button-right {
   visibility: hidden;
   overflow: hidden; }
 
+  .content-slide .slider {
+    height: 100vh;
+    position: relative;
+    visibility: hidden;
+    overflow: hidden; }
+
 .slider-slides {
   position: relative;
   height: 100%; }

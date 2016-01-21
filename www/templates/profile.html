@@ -1,33 +1,33 @@
 <ion-content style="background-color:#fff;">
-  <ion-slide-box on-slide-changed="slideHasChanged($index)">
+  <ion-slide-box on-slide-changed="slideHasChanged($index)" ng-click="goBack()">
     <ion-slide>
-      <img src="img/profile.jpg" style="width:100%;height:50%;margin:auto;display:block" >
+      <img ng-src="{{$root.user.picture}}" style="width:100%;height:50%;margin:auto;display:block" >
     </ion-slide>
     <ion-slide>
-      <img src="img/profile.jpg" style="width:100%;height:50%;margin:auto;display:block" >
+      <img ng-src="{{$root.user.picture}}" style="width:100%;height:50%;margin:auto;display:block" >
     </ion-slide>
     <ion-slide>
-      <img src="img/profile.jpg" style="width:100%;height:50%;margin:auto;display:block" >
+      <img ng-src="{{$root.user.picture}}" style="width:100%;height:50%;margin:auto;display:block" >
     </ion-slide>
   </ion-slide-box>
   <div style="width:100%; padding:12px;">
-    <h4 style="margin-bottom:0;">Ranjeet Kumar, 25</h4>
-    <p style="margin:0; color:#444;">University of Hyderabad</p>
-    <p style="margin:0; color:#888;"><small>100 km away</small></p>
+    <h4 style="margin-bottom:0;">{{$root.user.first_name}}&nbsp;{{$root.last_name}}</h4>
+    <!--<p style="margin:0; color:#444;">University of Hyderabad</p>
+    <p style="margin:0; color:#888;"><small>100 km away</small></p>-->
   </div>
   <hr style="color:#aaa;">
   <div style="padding:12px;">
-    <p>sdgdfggfhtgjnhg tn</p>
+    <p>About {{$root.user.first_name}}&nbsp;{{$root.user.last_name}}</p>
   </div>
   <hr>
   <div style="padding:12px;">
-    <p class="font-weight:600">10 Intersets</p>
+    <p class="font-weight:600">Intersets</p>
   </div>
 </ion-content>
-<ion-footer-bar>
+<!--<ion-footer-bar>
 <div>
   <div class="profile-button" style="background-image:url('img/mfglabs-cross_mark_51_0_ffffff_ffffff.png'); background-color:#ED463B;"></div>
   <div class="profile-button" style="background-image:url('img/fa-star_51_0_ffffff_ffffff.png'); background-color:#1AB9AB;"></div>
   <div class="profile-button" style="background-image:url('img/fa-heart_51_0_ffffff_ffffff.png'); background-color:#36C444"></div>
 </div>
-</ion-footer-bar>
+</ion-footer-bar>-->

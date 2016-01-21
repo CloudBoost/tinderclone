@@ -37,6 +37,7 @@ angular.module('setting', ['ionic','setting.controllers', 'setting.services', 'i
       .state('profile', {
         url: '/profile',
         templateUrl: 'templates/profile.html',
+        controller: 'ProfileCtrl'
       })
       .state('discovery', {
         url: '/discovery',
@@ -62,7 +63,7 @@ angular.module('setting', ['ionic','setting.controllers', 'setting.services', 'i
         url: '/user',
         templateUrl: 'templates/user.html',
       })
-      .state('app.logout', {
+      .state('logout', {
         url: "/logout",
         templateUrl: "templates/login.html",
         controller: "LogoutCtrl"

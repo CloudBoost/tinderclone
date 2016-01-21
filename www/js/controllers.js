@@ -32,27 +32,27 @@ angular.module('setting.controllers', [])
     });
    };
 })
-.controller('HomeCtrl', function($rootScope, $scope, TDCardDelegate) {
+.controller('HomeCtrl', function($rootScope, $scope, TDCardDelegate, $ionicSlideBoxDelegate) {
   var cardTypes = [{
-    'name': 'Plus',
-    'age':22,
-    image: 'img/1-60c47167290e620ea8ef2aa01d40c05e.jpg'
+    'name': 'John',
+    'age':23,
+    image: 'img/1.jpg'
   }, {
-    'name': 'Heart',
+    'name': 'Kate',
     'age': 24,
-    image: 'img/2-2937ec0711007ea4731388238d2850e4.jpg'
+    image: 'img/2.jpg'
   }, {
-    'name': 'Ranjeet',
-    'age':25,
-    image: 'img/profile.jpg'
+    'name': 'Britney',
+    'age':26,
+    image: 'img/3.jpg'
   }, {
-    'name': 'Question Mark',
+    'name': 'Khaleesi',
     'age':27,
-    image: 'img/3-92c3675516dd81ac898a7064ee9636bc.jpg'
+    image: 'img/4.jpeg'
   }, {
-    'name': 'Fire',
+    'name': 'Sansa',
     'age': 26,
-    image: 'img/5-f81555f2bb8bd9fb40d8df51a65f515c.jpg'
+    image: 'img/5.png'
   }];
   $scope.cards = Array.prototype.slice.call(cardTypes, 0);
 
@@ -69,6 +69,14 @@ angular.module('setting.controllers', [])
     newCard.id = Math.random();
     $scope.cards.push(angular.extend({}, newCard));
   };
+
+  $scope.next = function(){
+    $ionicSlideBoxDelegate.slide(1);
+  };
+
+  $scope.previous = function(){
+    $ionicSlideBoxDelegate.slide(0);
+  };
 })
 .controller('CardCtrl', function($scope, TDCardDelegate) {
   $scope.cardSwipedLeft = function(index) {
@@ -78,6 +86,11 @@ angular.module('setting.controllers', [])
   $scope.cardSwipedRight = function(index) {
     console.log('RIGHT SWIPE');
     $scope.addCard();
+  };
+})
+.controller('ProfileCtrl', function($rootScope, $scope, $location){
+  $scope.goBack = function() {
+    $location.path('/app');
   };
 })
 .controller('MatchCtrl', function($rootScope, $scope, $state, $location, $ionicLoading, Match){
