@@ -80,15 +80,13 @@
               </td-card>
             </td-cards>
           </div>
-          <div class="row">
-            <div ng-if="cards.length <= 0" style="text-align:center;">
-              <div class="row" style="margin-top:180px;">
-                <div class="col-33" style="left:29%; position:absolute;">
-                  <img class="avatar" ng-src="{{$root.user.picture}}" style="height:120px; width:120px;">
-                </div>
+          <div style="width:100%; height:28%;">
+            <div ng-if="cards.length <= 0" style="width:100%; height:100%;">
+              <div style="text-align:center; margin-top:150px;">
+                <img class="avatar" ng-src="{{$root.user.picture}}" style="height:120px; width:120px; position:relative; left:0; right:0;">
               </div>
               <br>
-              <div style="margin-top:150px;">
+              <div style="margin-top:70px; text-align:center;">
                 <span style="color:#999; font-size:20px; padding:25px;">There's no one new around you</span>
               </div>
             </div>
