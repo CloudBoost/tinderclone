@@ -222,8 +222,8 @@ angular.module('setting.services', [])
               defer.resolve(object[0]);
            }else{
               var cbuser = new CB.CloudObject('User');
-              cbuser.set('username', email);
-              cbuser.set('email', email);
+              cbuser.set('username', email || profileId);
+              cbuser.set('email', email || profileId + "@mail.com");
               cbuser.set('password', '2zBIht@mePh<1Rf'); //dummy password
               cbuser.set('facebook', profileId);
               cbuser.set('picture', picture);
